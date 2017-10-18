@@ -1,19 +1,16 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import List from './List/List';
-import Header from './Header/Header';
-import './style.css';
+import List from '../../components/List/List';
+import Header from '../../components/Header/Header';
 
 export default class MaterialButtonTest extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = {open: true};
+    this.state = { open: true };
   }
 
-  handleToggle = () => this.setState({open: !this.state.open});
+  handleToggle = () => this.setState({ open: !this.state.open });
 
   render() {
     return (
@@ -29,7 +26,6 @@ export default class MaterialButtonTest extends React.Component {
           <MenuItem onClick={this.handleToggle}>Close</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
-
       </div>
     );
   }
