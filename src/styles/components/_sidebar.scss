@@ -12,6 +12,16 @@
   font-weight: 500 !important;
 }
 
+.Sidebar__Menu-Item:focus {
+  background-color: rgba(0, 137, 117, 1) !important;
+  border-left: 3px solid white !important;
+  color: white !important;
+}
+
 .Sidebar__Menu-Item:hover {
   background-color: rgba(0, 137, 117, 1) !important;
+}
+
+.is-active {
+  color: white;
 }
