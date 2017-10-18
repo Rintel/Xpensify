@@ -8,11 +8,12 @@ cache:
 
 before_install:
   - npm i -g npm
-
+  - npm install
+  
 install: true
 
 script:
-  - npm run test
+  - npm run lint
 
 notifications:
   email:
