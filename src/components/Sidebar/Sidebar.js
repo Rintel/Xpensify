@@ -5,9 +5,11 @@ import MenuItem from 'material-ui/MenuItem';
 
 const Sidebar = () => {
   return (
-    <Drawer>
-      <MenuItem>Menu Item 1</MenuItem>
-      <MenuItem>Menu Item 2</MenuItem>
+    <Drawer containerClassName="Sidebar">
+      <div className="Sidebar__Menu-Items">
+        <MenuItem className="Sidebar__Menu-Item">Menu Item 1</MenuItem>
+        <MenuItem className="Sidebar__Menu-Item">Menu Item 2</MenuItem>
+      </div>
     </Drawer>
   );
 };

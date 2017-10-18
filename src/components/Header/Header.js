@@ -9,6 +9,7 @@ const propTypes = {
 const Header = ({ title }) => {
   return (
     <AppBar
+      className='Header'
       title={title}
       iconClassNameRight="muidocs-icon-navigation-expand-more"
       showMenuIconButton={false}
