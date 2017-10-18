@@ -3,6 +3,8 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import NewItem from './NewItem/NewItem';
+
 import {
   Table,
   TableBody,
@@ -77,6 +79,10 @@ export default class TableExampleComplex extends Component {
     this.setState({ open: false });
   };
 
+  handleSubmit = () => {
+    alert('Your item got created!')
+  };
+
   handleToggle = (event, toggled) => {
     this.setState({
       [event.target.name]: toggled,
@@ -88,7 +94,7 @@ export default class TableExampleComplex extends Component {
   };
 
   render() {
-    
+
     const actions = [
       <FlatButton
         label="Cancel"
@@ -99,8 +105,8 @@ export default class TableExampleComplex extends Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onClick={this.handleClose}
-      />,
+        onClick={this.handleSubmit}
+      />
     ];
 
     return (
@@ -113,7 +119,7 @@ export default class TableExampleComplex extends Component {
             open={this.state.open}
             onRequestClose={this.handleClose}
           >
-            The actions in this window were passed in as an array of React objects.
+            <NewItem />
         </Dialog>
         </div>
         <Table
