@@ -7,9 +7,9 @@ const Sidebar = () => {
   return (
     <Drawer containerClassName="Sidebar">
       <div className="Sidebar__Menu-Items">
-        <MenuItem className="Sidebar__Menu-Item">Menu Item 1</MenuItem>
-        <MenuItem className="Sidebar__Menu-Item">Menu Item 2</MenuItem>
-        <MenuItem className="Sidebar__Menu-Item">Menu Item 3</MenuItem>
+        <MenuItem className="Sidebar__Menu-Item">Expenses</MenuItem>
+        <MenuItem className="Sidebar__Menu-Item">Locations</MenuItem>
+        <MenuItem className="Sidebar__Menu-Item">Profile</MenuItem>
       </div>
     </Drawer>
   );

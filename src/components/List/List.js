@@ -65,7 +65,7 @@ export default class TableExampleComplex extends Component {
     selectable: true,
     multiSelectable: true,
     enableSelectAll: false,
-    deselectOnClickaway: true,
+    deselectOnClickaway: false,
     showCheckboxes: true,
     height: '500px',
     open: false
@@ -122,7 +122,7 @@ export default class TableExampleComplex extends Component {
             onRequestClose={this.handleClose}
           >
             <NewItem />
-        </Dialog>
+          </Dialog>
         </div>
         <Table
           height={this.state.height}
@@ -162,14 +162,13 @@ export default class TableExampleComplex extends Component {
               </TableRow>
               ))}
           </TableBody>
-          <TableFooter>
-          <div className='Button__Add'>
-            <FloatingActionButton onClick={this.handleOpen} secondary={true} style={style}>
-              <ContentAdd />
-            </FloatingActionButton>
-            </div>
-          </TableFooter>
+          <TableFooter />
         </Table>
+        <div className='Button__Add'>
+          <FloatingActionButton onClick={this.handleOpen} secondary={true} style={style}>
+            <ContentAdd />
+          </FloatingActionButton>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import Slider from 'material-ui/Slider';
 
 export default class NewItem extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class NewItem extends React.Component {
           errorText=""
           floatingLabelText=""
         /><br />
+        <Slider step={0.10} value={0.5} /><br />
         <TextField
           hintText=""
           errorText=""
