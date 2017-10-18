@@ -80,7 +80,7 @@ export default class TableExampleComplex extends Component {
   };
 
   handleSubmit = () => {
-    alert('Your item got created!')
+    alert('Your item got created!');
   };
 
   handleToggle = (event, toggled) => {
@@ -97,11 +97,13 @@ export default class TableExampleComplex extends Component {
 
     const actions = [
       <FlatButton
+        key="cancel"
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
       />,
       <FlatButton
+        key="submit"
         label="Submit"
         primary={true}
         keyboardFocused={true}
