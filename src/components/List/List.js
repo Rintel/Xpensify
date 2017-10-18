@@ -13,37 +13,43 @@ const tableData = [
   {
     name: 'John Smith',
     status: 'Employed',
+    amount: 24.50
   },
   {
     name: 'Randal White',
     status: 'Unemployed',
+    amount: 21.50
   },
   {
     name: 'Stephanie Sanders',
     status: 'Employed',
+    amount: 2.50
   },
   {
     name: 'Steve Brown',
     status: 'Employed',
+    amount: 2.50
   },
   {
     name: 'Joyce Whitten',
     status: 'Employed',
+    amount: 70.60
   },
   {
     name: 'Samuel Roberts',
     status: 'Employed',
+    amount: 2.50
   },
   {
     name: 'Adam Moore',
     status: 'Employed',
+    amount: 2.50
   },
 ];
 
 export default class TableExampleComplex extends Component {
   state = {
     fixedHeader: true,
-    fixedFooter: true,
     stripedRows: false,
     showRowHover: true,
     selectable: true,
@@ -51,7 +57,7 @@ export default class TableExampleComplex extends Component {
     enableSelectAll: false,
     deselectOnClickaway: true,
     showCheckboxes: true,
-    height: '300px',
+    height: '500px',
   };
 
   handleToggle = (event, toggled) => {
@@ -70,7 +76,6 @@ export default class TableExampleComplex extends Component {
         <Table
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
-          fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
         >
@@ -80,14 +85,15 @@ export default class TableExampleComplex extends Component {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                Super Header
+              <TableHeaderColumn colSpan="4" tooltip="Expenses" style={{textAlign: 'left'}}>
+                Expenses
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
               <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Amount">Amount</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -101,18 +107,10 @@ export default class TableExampleComplex extends Component {
                 <TableRowColumn>{index}</TableRowColumn>
                 <TableRowColumn>{row.name}</TableRowColumn>
                 <TableRowColumn>{row.status}</TableRowColumn>
+                <TableRowColumn>{`${row.amount} €`}</TableRowColumn>
               </TableRow>
               ))}
           </TableBody>
-          <TableFooter
-            adjustForCheckbox={this.state.showCheckboxes}
-          >
-            <TableRow>
-              <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-
-              </TableRowColumn>
-            </TableRow>
-          </TableFooter>
         </Table>
       </div>
     );

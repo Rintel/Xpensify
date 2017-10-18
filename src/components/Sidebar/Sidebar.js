@@ -9,6 +9,7 @@ const Sidebar = () => {
       <div className="Sidebar__Menu-Items">
         <MenuItem className="Sidebar__Menu-Item">Menu Item 1</MenuItem>
         <MenuItem className="Sidebar__Menu-Item">Menu Item 2</MenuItem>
+        <MenuItem className="Sidebar__Menu-Item">Menu Item 3</MenuItem>
       </div>
     </Drawer>
   );
