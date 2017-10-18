@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import {
   Table,
   TableBody,
@@ -47,6 +51,10 @@ const tableData = [
   },
 ];
 
+const style = {
+  marginRight: 20,
+};
+
 export default class TableExampleComplex extends Component {
   state = {
     fixedHeader: true,
@@ -58,6 +66,15 @@ export default class TableExampleComplex extends Component {
     deselectOnClickaway: true,
     showCheckboxes: true,
     height: '500px',
+    open: false
+  };
+
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
   };
 
   handleToggle = (event, toggled) => {
@@ -71,8 +88,34 @@ export default class TableExampleComplex extends Component {
   };
 
   render() {
+    
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ];
+
     return (
       <div>
+        <div>
+          <Dialog
+            title="Dialog With Actions"
+            actions={actions}
+            modal={false}
+            open={this.state.open}
+            onRequestClose={this.handleClose}
+          >
+            The actions in this window were passed in as an array of React objects.
+        </Dialog>
+        </div>
         <Table
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
@@ -111,6 +154,13 @@ export default class TableExampleComplex extends Component {
               </TableRow>
               ))}
           </TableBody>
+          <TableFooter>
+          <div className='Button__Add'>
+            <FloatingActionButton onClick={this.handleOpen} secondary={true} style={style}>
+              <ContentAdd />
+            </FloatingActionButton>
+            </div>
+          </TableFooter>
         </Table>
       </div>
     );
