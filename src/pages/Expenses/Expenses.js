@@ -1,10 +1,9 @@
 import React from 'react';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
 import List from '../../components/List/List';
 import Header from '../../components/Header/Header';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
-export default class MaterialButtonTest extends React.Component {
+export default class Expenses extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: true };
@@ -16,16 +15,10 @@ export default class MaterialButtonTest extends React.Component {
     return (
       <div>
         <div className="content-container">
-          <Header
-            title={"Xpensify"}
-            togglemenu={this.handleToggle}
-          />
+          <Header title={"Xpensify"} />
           <List />
+          <Sidebar />
         </div>
-        <Drawer open={this.state.open}>
-          <MenuItem onClick={this.handleToggle}>Close</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
-        </Drawer>
       </div>
     );
   }
