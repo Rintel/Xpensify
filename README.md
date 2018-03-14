@@ -11,7 +11,11 @@ inside the repository.
 
 To start the application localy on your machine run:
 
-`yarn run dev-server`
+`yarn start`
+
+### Testing
+
+`yarn test`
 
 
 ### Design
