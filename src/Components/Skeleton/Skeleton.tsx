@@ -59,7 +59,7 @@ const styles = (theme: Theme) => ({
         overflow: "hidden",
         marginLeft: -drawerWidth,
         backgroundColor: theme.palette.background.default,
-        // padding: theme.spacing.unit * 3,
+        padding: theme.spacing.unit,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
