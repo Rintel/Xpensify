@@ -16,8 +16,9 @@ describe(`<${ExpensesController.name} />`, () => {
             html = shallow(<ExpensesController />)
         })
 
-        it("should render a <div />", () => {
-            expect(html.contains(<div />)).toBe(true)
+        // until scene model is created
+        it("should have an empty state", () => {
+            expect(html.state()).toEqual({})
         })
     })
 })

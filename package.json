@@ -50,6 +50,7 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.js",
     "test": "jest --watch",
+    "test-travis": "jest",
     "coverage": "jest --coverage",
     "build": "webpack --config config/webpack.config.js"
   }

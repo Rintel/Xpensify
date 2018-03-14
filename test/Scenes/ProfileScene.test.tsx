@@ -17,7 +17,7 @@ describe(`<${ProfileScene.name} />`, () => {
         })
 
         it("should render a <div />", () => {
-            expect(html.contains(<div />)).toBe(true)
+            expect(html.containsMatchingElement(<div>Profile</div>)).toBe(true)
         })
     })
 })

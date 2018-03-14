@@ -16,8 +16,9 @@ describe(`<${ProfileController.name} />`, () => {
             html = shallow(<ProfileController />)
         })
 
-        it("should render a <div />", () => {
-            expect(html.contains(<div />)).toBe(true)
+        // until model
+        it("should have empty props", () => {
+            expect(html.props()).toEqual({})
         })
     })
 })

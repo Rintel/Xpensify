@@ -20,7 +20,7 @@ describe(`<${LocationsScene.name} />`, () => {
         })
 
         it("should render a <div />", () => {
-            expect(html.contains(<div />)).toBe(true)
+            expect(html.containsMatchingElement(<div>Locations</div>)).toBe(true)
         })
     })
 })
