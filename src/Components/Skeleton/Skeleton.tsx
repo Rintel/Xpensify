@@ -1,6 +1,13 @@
 import * as React from "react"
-import { withStyles, AppBar, Toolbar, StyledComponentProps, WithStyles, Theme, Divider, Typography, List, ListItem, ListItemIcon, Icon, ListItemText } from "material-ui"
-import { Drawer, IconButton } from ".."
+import Icon from "material-ui/Icon"
+import AppBar from "material-ui/AppBar"
+import Toolbar from "material-ui/Toolbar"
+import Divider from "material-ui/Divider"
+import Typography from "material-ui/Typography"
+import { Theme, withStyles, StyledComponentProps, WithStyles } from "material-ui/styles"
+import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List"
+import Drawer from "../Drawer/Drawer"
+import IconButton from "../IconButton/IconButton"
 import { Link } from "react-router-dom"
 
 export interface Props extends StyledComponentProps {

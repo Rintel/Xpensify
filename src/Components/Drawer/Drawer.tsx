@@ -1,6 +1,7 @@
 import * as React from "react"
-import { withStyles, WithStyles, Drawer as MaterialDrawer, Theme, StyledComponentProps } from "material-ui"
+import { withStyles, WithStyles, Theme, StyledComponentProps } from "material-ui/styles"
 import Typography from "material-ui/Typography/Typography"
+import MaterialDrawer from "material-ui/Drawer/Drawer"
 
 export interface Props extends StyledComponentProps {
     children?: React.ReactNode

@@ -3,9 +3,8 @@ import * as ReactDOM from "react-dom"
 
 import Router from "./Router"
 
-import { createMuiTheme } from 'material-ui/styles'
+import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles'
 import red from 'material-ui/colors/red'
-import { MuiThemeProvider } from "material-ui"
 
 const theme = createMuiTheme({
 	palette: {

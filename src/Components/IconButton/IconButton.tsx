@@ -1,5 +1,7 @@
 import * as React from "react"
-import { IconButton as MaterialIconButton, Icon, Badge } from "material-ui";
+import MaterialIconButton from "material-ui/IconButton"
+import Icon from "material-ui/Icon"
+import Badge from "material-ui/Badge"
 
 export interface Props {
     children?: React.ReactNode
