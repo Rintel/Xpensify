@@ -1,6 +1,7 @@
 import * as React from "react"
 import { withStyles, AppBar, Toolbar, StyledComponentProps, WithStyles, Theme, Divider, Typography, List, ListItem, ListItemIcon, Icon, ListItemText } from "material-ui"
 import { Drawer, IconButton } from ".."
+import { Link } from "react-router-dom"
 
 export interface Props extends StyledComponentProps {
     children?: React.ReactNode
@@ -8,7 +9,7 @@ export interface Props extends StyledComponentProps {
 
 export interface State {
     leftDrawerOpen: boolean
-    rightDrawerOpen: boolean
+    // rightDrawerOpen: boolean
 }
 
 const drawerWidth = 240;
@@ -21,6 +22,8 @@ const styles = (theme: Theme) => ({
     },
     appBar: {
         position: 'absolute',
+        // width: 0,
+        backgroundColor: theme.palette.primary.dark,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -34,14 +37,14 @@ const styles = (theme: Theme) => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    appBarShiftRight: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginRight: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
+    // appBarShiftRight: {
+    //     width: `calc(100% - ${drawerWidth}px)`,
+    //     marginRight: drawerWidth,
+    //     transition: theme.transitions.create(['margin', 'width'], {
+    //         easing: theme.transitions.easing.easeOut,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
@@ -51,12 +54,12 @@ const styles = (theme: Theme) => ({
     },
     toolbar: theme.mixins.toolbar,
     content: {
+        // width: `calc(100% - ${drawerWidth}px)`,
         flexGrow: 1,
         overflow: "hidden",
         marginLeft: -drawerWidth,
-        marginRight: -drawerWidth,
         backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
+        // padding: theme.spacing.unit * 3,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -64,22 +67,27 @@ const styles = (theme: Theme) => ({
     },
     contentShiftLeft: {
         // content dont flow?
-        // marginLeft: 0,
+        // width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: 0,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    contentShiftRight: {
-        // content dont flow?
-        // marginRight: 0,
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
+    // contentShiftRight: {
+    //     // content dont flow?
+    //     // marginRight: 0,
+    //     transition: theme.transitions.create('margin', {
+    //         easing: theme.transitions.easing.easeOut,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
     flex: {
         flex: 1
+    },
+    link: {
+        color: theme.palette.primary.contrastText,
+        textDecoration: "none"
     }
 })
 
@@ -89,24 +97,27 @@ class Skeleton extends React.Component<Props & WithStyles, State> {
         super(props as any)
 
         this.state = {
-            leftDrawerOpen: false,
-            rightDrawerOpen: false
+            leftDrawerOpen: true
+            // rightDrawerOpen: false
         }
     }
 
     toggleLeftSidemenu() {
-        this.setState({ leftDrawerOpen: !this.state.leftDrawerOpen, rightDrawerOpen: false })
+        this.setState({
+            leftDrawerOpen: !this.state.leftDrawerOpen,
+            // rightDrawerOpen: false 
+        })
     }
 
-    toggleRightSidemenu() {
-        this.setState({ rightDrawerOpen: !this.state.rightDrawerOpen, leftDrawerOpen: false })
-    }
+    // toggleRightSidemenu() {
+    //     this.setState({ rightDrawerOpen: !this.state.rightDrawerOpen, leftDrawerOpen: false })
+    // }
 
     render() {
         const { classes } = this.props
         return (
             <div className={this.props.classes.root}>
-                <AppBar className={this.appbarClassNames} color="primary">
+                <AppBar className={this.appbarClassNames}>
                     <Toolbar>
                         <IconButton icon="dehaze" onClick={this.toggleLeftSidemenu.bind(this)} />
                         <Typography variant="title" color="inherit" className={classes.flex}>
@@ -115,18 +126,19 @@ class Skeleton extends React.Component<Props & WithStyles, State> {
                         {/* <IconButton icon="mail" badge={21} onClick={this.toggleRightSidemenu.bind(this)} /> */}
                     </Toolbar>
                 </AppBar>
-                <Drawer anchor="left" open={this.state.leftDrawerOpen} variant="permanent">
-                    <Divider />
+                <Drawer anchor="left" open={this.state.leftDrawerOpen} variant="persistent">
                     <List component="nav">
-                        <ListItem button>
-                            <ListItemText primary="Locations" />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Expenses" />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Profile" />
-                        </ListItem>
+                        {[{ link: "/locations", title: "Location" }, { link: "/expenses", title: "Expenses" }, { link: "/profile", title: "Profile" }].map((value, index) => {
+                            return (
+                                <Link key={index} to={value.link} className={classes.link}>
+                                    <ListItem button>
+                                        <Typography variant="title" color="inherit">
+                                            {value.title}
+                                        </Typography>
+                                    </ListItem>
+                                </Link>
+                            )
+                        })}
                     </List>
                 </Drawer>
                 <div className={this.contentClassNames}>
@@ -148,9 +160,9 @@ class Skeleton extends React.Component<Props & WithStyles, State> {
             classNames.push(this.props.classes.appBarShiftLeft)
         }
 
-        if (this.state.rightDrawerOpen) {
-            classNames.push(this.props.classes.appBarShiftRight)
-        }
+        // if (this.state.rightDrawerOpen) {
+        //     classNames.push(this.props.classes.appBarShiftRight)
+        // }
 
         return classNames.filter(e => e).join(" ")
     }
@@ -162,9 +174,9 @@ class Skeleton extends React.Component<Props & WithStyles, State> {
             classNames.push(this.props.classes.contentShiftLeft)
         }
 
-        if (this.state.rightDrawerOpen) {
-            classNames.push(this.props.classes.contentShiftRight)
-        }
+        // if (this.state.rightDrawerOpen) {
+        //     classNames.push(this.props.classes.contentShiftRight)
+        // }
 
         return classNames.filter(e => e).join(" ")
     }

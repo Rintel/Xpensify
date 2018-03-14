@@ -1,5 +1,6 @@
 import * as React from "react"
 import { withStyles, WithStyles, Drawer as MaterialDrawer, Theme, StyledComponentProps } from "material-ui"
+import Typography from "material-ui/Typography/Typography"
 
 export interface Props extends StyledComponentProps {
     children?: React.ReactNode
@@ -16,15 +17,17 @@ const styles = (theme: Theme) => ({
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
+        justifyContent: 'flex-start',
+        padding: '41px 0 0 24px',
         ...theme.mixins.toolbar,
         backgroundColor: theme.palette.primary.main
     },
     drawerPaper: {
         position: "relative",
         width: drawerWidth,
-        height: "100%"
+        height: "100%",
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText
     },
 })
 
@@ -33,7 +36,11 @@ class Drawer extends React.Component<Props & WithStyles<"drawerHeader" | "drawer
         const { classes } = this.props
         return (
             <MaterialDrawer anchor={this.props.anchor} variant={this.variant} open={this.props.open} classes={{ paper: classes.drawerPaper }}>
-                <div className={classes.drawerHeader} />
+                <div className={classes.drawerHeader}>
+                    <Typography variant="headline" color="inherit" className={classes.flex}>
+                        Xpensify
+                    </Typography>
+                </div>
                 {this.props.children}
             </MaterialDrawer>
         )

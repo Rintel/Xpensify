@@ -5,18 +5,15 @@ import * as React from "react"
 import { shallow, ShallowWrapper } from "enzyme"
 
 /** Import Tested Component */
-import LocationsScene from "../../src/Scenes/LocationsScene/LocationsScene"
-import LocationSceneModel from "../../src/Models/LocationSceneModel"
+import ExpensesScene from "../../src/Scenes/ExpensesScene/ExpensesScene"
 
-describe(`<${LocationsScene.name} />`, () => {
+describe(`<${ExpensesScene.name} />`, () => {
 
     describe("default", () => {
         let html: ShallowWrapper
-        let model: LocationSceneModel
 
         beforeAll(() => {
-            model = new LocationSceneModel()
-            html = shallow(<LocationsScene model={model} />)
+            html = shallow(<ExpensesScene />)
         })
 
         it("should render a <div />", () => {

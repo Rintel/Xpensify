@@ -1,11 +1,12 @@
 import * as React from "react"
 import LocationsScene from "../../Scenes/LocationsScene/LocationsScene"
+import LocationSceneModel from "../../Models/LocationSceneModel/LocationSceneModel"
 
 export interface Props {
-    children?: React.ReactNode
 }
 
 export interface State {
+    model: LocationSceneModel
 }
 
 export default class LocationsController extends React.Component<Props, State> {
@@ -14,12 +15,17 @@ export default class LocationsController extends React.Component<Props, State> {
         super(props)
 
         this.state = {
+            model: new LocationSceneModel()
         }
+    }
+
+    componentWillMount() {
+        // load model
     }
 
     render() {
         return (
-            <LocationsScene />
+            <LocationsScene model={this.state.model} />
         )
     }
 }
