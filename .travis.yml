@@ -14,8 +14,6 @@ install: true
 
 script:
   - npm run test-travis
-
-deploy:
   - npm run build
 
 notifications:
