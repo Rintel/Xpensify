@@ -1,10 +1,10 @@
-## Xpensify
+# Xpensify
 
-### Setup
+## Setup
 
 In order to run the application you have to install the dependencies by running:
 
-`yarn install` 
+`yarn install`
 
 inside the repository.
 
@@ -13,20 +13,20 @@ To start the application localy on your machine run:
 
 `yarn start`
 
-### Testing
+## Testing
 
 `yarn test`
 
 
-### Design
+## Design
 
 You find the design specs here: https://zpl.io/2vMElmJ
 
-### ToDos
+## ToDos
 
 - [x] Provide Design Templates
 - [ ] Add Docker Support 
 - [ ] Build basic welcome screen
 - [ ] Add Database (probably Firebase)
 
-### To be continued 
+## To be continued

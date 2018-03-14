@@ -4,6 +4,12 @@
   "author": "Cedric Laier",
   "license": "MIT",
   "dependencies": {
+    "material-ui": "1.0.0-beta.35",
+    "material-ui-icons": "1.0.0-beta.35",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "ts-loader": "4.0.1",
     "typescript": "2.7.2",
     "webpack": "4.1.1",
